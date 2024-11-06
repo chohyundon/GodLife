@@ -1,12 +1,17 @@
 import { Title } from "../HomeTitle/Title";
-import { LoginHome } from "../index";
+import { useUserStore } from "../Store/userStore";
 import style from "./Home.module.css";
 
 export function HomePage() {
+  const { userData } = useUserStore();
+  const isUserData = userData?.displayName;
+
   return (
     <div className={style.HomeContainer}>
       <Title />
-      <LoginHome />
+      <div>
+        <p>{isUserData ? "로그인" : "로그아웃"}</p>
+      </div>
     </div>
   );
 }
