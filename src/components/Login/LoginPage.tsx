@@ -1,11 +1,11 @@
 import { useEffect } from "react";
-import { loginWithFirebase } from "../../hooks/useLogin";
 import style from "./Login.module.css";
 import { useUserStore } from "../Store/userStore";
 import {
   setLocalStorageData,
   getLocalStorageData,
   removeLocalStorage,
+  loginWithFirebase,
 } from "../index";
 
 export function Login() {
