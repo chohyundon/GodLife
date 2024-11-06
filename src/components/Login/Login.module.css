@@ -1,0 +1,10 @@
+.loginContainer {
+  display: flex;
+  position: absolute;
+  right: 0;
+}
+
+.userContainer {
+  display: flex;
+  flex-direction: column;
+}
