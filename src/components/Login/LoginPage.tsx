@@ -2,6 +2,11 @@ import { useEffect } from "react";
 import { loginWithFirebase } from "../../hooks/useLogin";
 import style from "./Login.module.css";
 import { useUserStore } from "../Store/userStore";
+import {
+  setLocalStorageData,
+  getLocalStorageData,
+  removeLocalStorage,
+} from "../index";
 
 export function Login() {
   const { userData, setUserData } = useUserStore();
@@ -12,20 +17,18 @@ export function Login() {
     if (user) {
       setUserData(user);
 
-      const { displayName, photoURL } = user;
+      const userDisplayName = user.displayName ?? "로그인 해주세요!";
+      const userPhotoURL = user.photoURL ?? "로그인 해주세요!";
 
-      window.localStorage.setItem(
-        "displayName",
-        displayName || "사용자 이름 없음"
-      );
-      window.localStorage.setItem("photoURL", photoURL || "");
+      setLocalStorageData("displayName", userDisplayName);
+      setLocalStorageData("photoURL", userPhotoURL);
     }
   };
 
   //처음 렌더링 되었을때, 세션 스토리지에 유저 데이터 있을시 데이터를 가져옴
   useEffect(() => {
-    const storageName = window.localStorage.getItem("displayName") || null;
-    const storageURL = window.localStorage.getItem("photoURL") || null;
+    const storageName = getLocalStorageData("displayName");
+    const storageURL = getLocalStorageData("photoURL");
 
     if (storageName && storageURL) {
       setUserData({ displayName: storageName, photoURL: storageURL });
@@ -35,8 +38,9 @@ export function Login() {
   //로그아웃 버튼을 클릭시 useState null로 만들고 세션 스토리지의 값도 삭제
   const handleLogOut = () => {
     setUserData(null);
-    window.localStorage.removeItem("displayName");
-    window.localStorage.removeItem("photoURL");
+
+    removeLocalStorage("displayName");
+    removeLocalStorage("photoURL");
   };
 
   return (
