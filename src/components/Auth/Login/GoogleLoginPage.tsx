@@ -1,12 +1,12 @@
 import { useEffect } from "react";
 import style from "./Login.module.css";
-import { useUserStore } from "../Store/userStore";
+import { useUserStore } from "../../Store/userStore";
 import {
   setLocalStorageData,
   getLocalStorageData,
   // removeLocalStorage,
   loginWithFirebase,
-} from "../index";
+} from "../../index";
 
 import { FaGoogle } from "react-icons/fa";
 

@@ -38,6 +38,15 @@
   right: 0;
 }
 
+.formContainer {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  width: 80%;
+  position: relative;
+  top: 3%;
+}
+
 .userContainer {
   display: flex;
   flex-direction: column;
@@ -56,4 +65,18 @@
   cursor: pointer;
   border: 1px solid;
   background-color: white;
+}
+
+.inputBox {
+  padding: 10px;
+  border-radius: 10px;
+  border: none;
+}
+
+.loginButton {
+  padding: 10px;
+  border: none;
+  background-color: black;
+  color: white;
+  border-radius: 10px;
 }

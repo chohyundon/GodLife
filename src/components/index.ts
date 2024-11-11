@@ -1,7 +1,7 @@
 export { HomePage } from "./Home/HomePage";
 
-export { LoginHome } from "./Login/LoginPage";
-export { GoogleUserLogin } from "./Login/GoogleLoginPage";
+export { LoginHome } from "./Auth/Login/LoginPage";
+export { GoogleUserLogin } from "./Auth/Login/GoogleLoginPage";
 
 export { loginWithFirebase } from "../utils/loginWithFirebase";
 export { setLocalStorageData } from "../utils/setLocalStorage";
